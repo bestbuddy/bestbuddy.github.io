@@ -653,13 +653,13 @@ function generate() {
       scrollY: -window.scrollY,
       useCORS: true,
     };
-    html2canvas($("#signature-box")[0], opt).then(function (canvas) {
+    html2canvas($("#sheet2")[0], opt).then(function (canvas) {
       console.log("ending");
       if (!window.flag) {
         alert("Signature Please ...");
         return;
       }
-      doc.addImage(canvas, "JPEG", w, h + 10, 130, 50);
+      doc.addImage(canvas.toDataURL("image/jpeg", 1.0), "JPEG", w, h + 10, 130, 50);
       doc.save(name);
       location.reload();
     });
